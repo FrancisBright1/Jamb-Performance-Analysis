@@ -4,7 +4,7 @@ import plotly.express as px
 
 
 st.set_page_config(page_title="JAMB Score EDA", layout="wide")
-st.title("📊 JAMB Exam Result Analysis")
+st.title("📊 2024 JAMB Exam Result Analysis")
 
 # Load and clean dataset
 df = pd.read_csv("jamb_exam_results.csv")
