@@ -2,9 +2,26 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-
 st.set_page_config(page_title="JAMB Score EDA", layout="wide")
-st.title("📊 2024 JAMB Exam Result Analysis")
+
+st.title("📊 JAMB Exam Result Analysis")
+
+# Explain the grading system
+st.markdown("""
+### 🔢 Score Band Categorization
+
+The JAMB scores were grouped into clearly defined performance categories based on widely accepted interpretations of academic performance. This grouping helps to analyze the overall performance of students more meaningfully.
+
+| **Score Range** | **Grade Band**  | **Description**                              |
+|-----------------|------------------|----------------------------------------------|
+| 100 - 120       | Very Poor         | Indicates extremely low performance.         |
+| 121 - 200       | Poor              | Below average performance.                   |
+| 201 - 260       | Fair              | Slightly below or around average.            |
+| 261 - 300       | Good              | Above average, meets university expectations.|
+| 301 - 350       | Very Good         | Strong performance, competitive score.       |
+| 351 - 400       | Excellent         | Top-tier score, exceptional performance.     |
+""")
+
 
 # Load and clean dataset
 df = pd.read_csv("jamb_exam_results.csv")
