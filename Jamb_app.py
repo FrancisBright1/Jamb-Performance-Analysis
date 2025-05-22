@@ -22,6 +22,76 @@ The JAMB scores were grouped into clearly defined performance categories based o
 | 351 - 400       | Excellent         | Top-tier score, exceptional performance.     |
 """)
 
+with st.expander("📄 Project Documentation"):
+    st.markdown("""
+    ### Executive Summary  
+    The JAMB Performance Analysis project is a data-driven initiative designed to uncover meaningful insights from the results of candidates who sat for the Joint Admissions and Matriculation Board (JAMB) examination in Nigeria. Using Python, Pandas, Plotly, and Streamlit, this project presents visual interpretations of candidate performance influenced by academic and socioeconomic factors such as school type, parental involvement, gender, and access to learning materials.
+
+    ### Aim  
+    To analyze the performance of students in the JAMB examination and identify key academic and socioeconomic factors influencing their success, with the goal of improving educational planning and outcomes.
+
+    ### Objectives  
+    1. Categorize student scores into performance bands to simplify data interpretation.  
+    2. Analyze success rate variations across:
+        - Extra tutorial attendance
+        - Parental involvement
+        - School type (Private vs. Public)
+        - Socioeconomic status
+        - Gender and school location
+        - Access to learning materials
+        - Parental education level  
+    3. Visualize relationships using interactive data visualizations (bar charts, pie charts, etc.).  
+    4. Deploy the project as a Streamlit web app for accessibility and public usage.
+
+    ### Methodology  
+    - **Technologies Used**: Python, Pandas, Streamlit, Plotly  
+    - **Data Source**: `jamb_exam_results.csv`  
+    - **Score Band Categorization**:  
+        ```python
+        def categorize_score(score):
+            if 100 <= score <= 120:
+                return "Very Poor"
+            elif 121 <= score <= 200:
+                return "Poor"
+            elif 201 <= score <= 260:
+                return "Fair"
+            elif 261 <= score <= 300:
+                return "Good"
+            elif 301 <= score <= 350:
+                return "Very Good"
+            elif 351 <= score <= 400:
+                return "Excellent"
+            else:
+                return "Invalid"
+        ```
+    - **Success Definition**: A student is considered successful if their score is 260 or above.  
+        ```python
+        df['is_successful'] = df['jamb_score'] >= 260
+        ```
+
+    ### Findings  
+    - **Extra Tutorials**: Candidates who attended extra tutorials had a noticeably higher success rate.  
+    - **Parental Involvement**: Candidates with active parental support showed stronger academic outcomes.  
+    - **School Type**: Private school students outperformed those from public schools across most performance bands.  
+    - **Gender and School Location**: Males were more frequently represented in urban schools; females were more evenly distributed.  
+    - **Access to Learning Materials**: Significantly influenced student success; those with access had better scores.  
+    - **Socioeconomic Status**: Students from higher SES backgrounds performed better than their lower SES counterparts.  
+    - **Parental Education Level**: Higher levels of parental education corresponded with better student performance.
+
+    ### Recommendations  
+    1. Promote Extra Tutorial Programs.  
+    2. Encourage Parental Engagement.  
+    3. Upgrade Public School Resources.  
+    4. Ensure Access to Learning Materials.  
+    5. Support Low SES Students through scholarships and mentorship.
+
+    ### Conclusion  
+    This project successfully highlights how multiple factors, including socioeconomic background, school type, and access to resources, contribute to student performance in the JAMB exams. With interactive visualizations and a mobile-friendly interface, the application serves as a valuable decision-making tool for stakeholders in the Nigerian education sector.
+
+    ---
+    👨‍💻 **Project Credit**: Built with ❤️ by **Francis Bright**
+    """)
+
 
 # Load and clean dataset
 df = pd.read_csv("jamb_exam_results.csv")
